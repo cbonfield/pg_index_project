@@ -1,0 +1,16 @@
+Author: Charlie Bonfield
+Date: May 2017
+
+These folders contain data scraped from NBA.com that may be useful for the PG index project.
+
+Here are some notes that may be helpful while sifting through the data, but feel free to 
+shoot me an email (bonfield@live.unc.edu) if you have any questions!
+
+- If you navigate to the main stats page on NBA.com, you will see a dropdown menu next to "Players" - the folder labels correspond to data obtained from selecting the corresponding option under this menu. Within each folder, the labels on the data files correspond to the option selected on the third menu (two from the right of "Players"). For instance, the data from "Players - General - Traditional" may be found in General/Traditional.csv. 
+- All of the data that I have pulled are raw totals (where appropriate) for players labeled ‘guards’ (with the exception of Playtype, more on that below) from the 2016-2017 regular season. In doing so, you will be able to calculate rate statistics (per game, per 100 possessions, per 36 minutes, etc.) or just use the raw counts as your team sees fit.  
+- I have not done any sort of post-processing after pulling the data from stats.nba.com. That said, some of the column names may be a bit mysterious - I would recommend consulting the Google or going to the appropriate stats.nba.com page to figure out what some of the more mysterious column names may actually mean. Additionally, there may be information that does not actually appear on the stats.nba.com pages - this is because some filtering is being performed prior to the data being displayed on the page, and I have scraped the JSON feeds that supply the data directly from the stats.nba.com API. 
+- In some cases, column names are repeated because the data files do not have the header that further distinguishes between repeated column names. This probably sounds confusing, but as an example, look at Shooting/5ft+Range.csv. If you navigate to the appropriate page on NBA.com/stats, you will notice that the table is divided into six distance ranges (less than 5 ft. to 25-29 ft.) that do not appear in the data file. If you wish to use data from files of this nature, you will need to either (1) add another row at the top of each data file with these identifiers or (2) rename each column with some spiffy variable name that does the same thing for you as (1).
+- Some of the Playtype data (Misc, PRBallHandler, PRRollman, Cut) came out poorly because of some weird behavior with the JSON feeds on the stats.nba.com side of things (as you can see, things were not properly labeled - still not sure how this happened). This may not be data essential to the project, but I will try to sort out the problem just in case.  
+- As I mentioned above, the Playtype data also contains data for all player positions. However, the column in the data file labeled ‘P’ corresponds to player position, so you could conceivably just perform the necessary filtering after loading it into Python/R/whatever you choose to work with.  
+
+I believe that is all that I have for now! Best of luck! 
